@@ -36,6 +36,7 @@ namespace Linkedin.RegistroProfesionales.Entity
         [Required]
         [StringLength(100)]
         public string Direccion { get; set; }
+        public List<Experiencia> Experiencias { get; set;}
         
     }
 }

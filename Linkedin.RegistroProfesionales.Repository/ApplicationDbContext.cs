@@ -10,5 +10,6 @@ namespace Linkedin.RegistroProfesionales.Repository
         }
 
         public DbSet<Profesional> Profesionales { get; set; }
+        public DbSet<Experiencia> Experiencias { get; set;}
     }
 }

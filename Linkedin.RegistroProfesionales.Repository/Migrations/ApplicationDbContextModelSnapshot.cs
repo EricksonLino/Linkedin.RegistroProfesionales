@@ -105,6 +105,11 @@ namespace Linkedin.RegistroProfesionales.Repository.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("Perfil")
+                        .IsRequired()
+                        .HasMaxLength(70)
+                        .HasColumnType("nvarchar(70)");
+
                     b.Property<string>("Telefono")
                         .IsRequired()
                         .HasMaxLength(15)

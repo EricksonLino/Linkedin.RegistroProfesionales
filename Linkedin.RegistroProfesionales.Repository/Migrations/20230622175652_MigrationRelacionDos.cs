@@ -6,11 +6,19 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Linkedin.RegistroProfesionales.Repository.Migrations
 {
     /// <inheritdoc />
-    public partial class MigrationExperiencia : Migration
+    public partial class MigrationRelacionDos : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.AddColumn<string>(
+                name: "Perfil",
+                table: "Profesionales",
+                type: "nvarchar(70)",
+                maxLength: 70,
+                nullable: false,
+                defaultValue: "");
+
             migrationBuilder.CreateTable(
                 name: "Experiencias",
                 columns: table => new
@@ -46,6 +54,10 @@ namespace Linkedin.RegistroProfesionales.Repository.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Experiencias");
+
+            migrationBuilder.DropColumn(
+                name: "Perfil",
+                table: "Profesionales");
         }
     }
 }

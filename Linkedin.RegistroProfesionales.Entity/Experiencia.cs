@@ -13,7 +13,7 @@ namespace Linkedin.RegistroProfesionales.Entity
         public int Id { get; set; }
         [Required]
         [StringLength(80)]
-        public string NombreDeEmpresa { get; set; }
+        public string NombreEmpresa { get; set; }
         [Required]
         [StringLength(50)]
         public string Cargo { get; set; }
@@ -22,7 +22,7 @@ namespace Linkedin.RegistroProfesionales.Entity
         [Required]
         public DateTime FechaFinalizacion { get; set; }
         [Required]
-        [StringLength(500)]
+        [StringLength(5000)]
         public string Funciones { get; set; }
         public int ProfesionalId { get; set; }
         public Profesional Profesional { get; set; }

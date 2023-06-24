@@ -10,13 +10,10 @@ namespace Linkedin.RegistroProfesionales.Application.Dtos
 {
     public class ProfesionalDto
     {
-        
         public int Id { get; set; }
-        public string DNI { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
+        public string Dni { get; set; }
+        public string Nombres { get; set; }
+        public string Apellidos { get; set; }
         public string Perfil { get; set; }
-        
-        public List<Experiencia> Experiencias { get; set; }
     }
 }

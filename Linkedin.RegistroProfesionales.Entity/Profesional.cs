@@ -40,6 +40,7 @@ namespace Linkedin.RegistroProfesionales.Entity
         [StringLength(100)]
         public string Direccion { get; set; }
         public List<Experiencia> Experiencias { get; set;}
+        public List<ProfesionalCurso> ProfesionalCurso { get; set; }
         
     }
 }

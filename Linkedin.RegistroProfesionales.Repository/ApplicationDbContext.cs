@@ -9,7 +9,18 @@ namespace Linkedin.RegistroProfesionales.Repository
         {
         }
 
+        //apifluente de entityframework core / generando las llaves compuestas
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<ProfesionalCurso>() // la entidad ProfesionalCurso va aterner una nueva llave 
+                .HasKey(x => new {x.ProfesionalId, x.CursoId}); //una llave primaria compuesta pro profesional id y curso id
+        }
+
         public DbSet<Profesional> Profesionales { get; set; }
         public DbSet<Experiencia> Experiencias { get; set;}
+        public DbSet<Curso> Cursos { get; set; }
+        public DbSet<ProfesionalCurso> ProfesionalesCursos { get; set; }
     }
 }
+

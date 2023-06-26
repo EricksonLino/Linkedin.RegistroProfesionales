@@ -22,5 +22,16 @@ namespace Linkedin.RegistroProfesionales.API.Controllers
             var profesionales = await profesionalApplication.ListarProfesionales();
             return profesionales;
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ProfesionalDetalleDto>> ObtenerProfesionalPorId(int id)
+        {
+            var profesional = await profesionalApplication.ObtenerProfesionalPorId(id);
+            if (profesional == null)
+            {
+                return NotFound("$ No se encontro el ID {id}");
+            }
+            return profesional;
+        }
     }
 }

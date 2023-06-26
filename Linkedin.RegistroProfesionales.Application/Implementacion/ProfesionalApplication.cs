@@ -21,6 +21,20 @@ namespace Linkedin.RegistroProfesionales.Application.Implementacion
             var profecionalDto = mapper.Map<List<ProfesionalDto>>(profesionales);
             return profecionalDto;
         }
+
+        public async Task<ProfesionalDetalleDto> ObtenerProfesionalPorId(int id)
+        {
+            var profesional = await profesionalRepository.ObtenerProfesionalPorId(id);
+            var profesionalDetalleDto = mapper.Map<ProfesionalDetalleDto>(profesional);
+            return profesionalDetalleDto;
+        }
+
+        public async Task<List<ExperienciaDto>> ObtenerExperienciasPorProfesionalId(int id)
+        {
+            var experiencias = await profesionalRepository.ObtenerExperienciasPorProfesionalId(id);
+            var experienciaDto = mapper.Map<List<ExperienciaDto>>(experiencias);
+            return experienciaDto;
+        }
     }
 
 }

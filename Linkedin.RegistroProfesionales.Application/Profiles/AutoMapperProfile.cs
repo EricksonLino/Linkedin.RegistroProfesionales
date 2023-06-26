@@ -9,6 +9,8 @@ namespace Linkedin.RegistroProfesionales.Application.Profiles
         public AutoMapperProfile()
         {
             CreateMap<Profesional, ProfesionalDto>();
+            CreateMap<Profesional, ProfesionalDetalleDto>();
+            CreateMap<Experiencia, ExperienciaDto>();
             
         }
     }

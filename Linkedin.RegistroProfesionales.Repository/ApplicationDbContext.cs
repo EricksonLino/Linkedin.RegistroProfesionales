@@ -14,7 +14,7 @@ namespace Linkedin.RegistroProfesionales.Repository
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<ProfesionalCurso>() // la entidad ProfesionalCurso va aterner una nueva llave 
-                .HasKey(x => new {x.ProfesionalId, x.CursoId}); //una llave primaria compuesta pro profesional id y curso id
+                .HasKey(x => new {x.ProfesionalId, x.CursoId}); //una llave primaria compuesta por profesional id y curso id
         }
 
         public DbSet<Profesional> Profesionales { get; set; }

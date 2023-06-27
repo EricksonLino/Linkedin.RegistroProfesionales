@@ -30,5 +30,11 @@ namespace Linkedin.RegistroProfesionales.Repository.Implementacion
             var experiencias = await context.Experiencias.Where(x => x.ProfesionalId == id).ToListAsync();
             return experiencias;
         }
+
+        //public async Task<List<Curso>> ObtenerCursoPorProfesionalId(int id)
+        //{
+        //    var profesionalesCursos =  await context.ProfesionalesCursos.Include(x => x.Curso).Where(x => x.ProfesionalId==id).ToListAsync();
+        //    return profesionalesCursos;
+        //}
     }
 }

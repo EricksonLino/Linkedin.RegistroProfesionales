@@ -1,5 +1,6 @@
 ﻿using Linkedin.RegistroProfesionales.Application.Dtos;
 using Linkedin.RegistroProfesionales.Application.Interfaces;
+using Linkedin.RegistroProfesionales.Entity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,12 +25,12 @@ namespace Linkedin.RegistroProfesionales.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProfesionalDetalleDto>> ObtenerProfesionalPorId(int id)
+        public async Task<ActionResult<ProfesionalDetalleDto>> ObtenerDetalleProfesional(int id)
         {
-            var profesional = await profesionalApplication.ObtenerProfesionalPorId(id);
+            var profesional = await profesionalApplication.ObtenerDetalleProfesional(id);
             if (profesional == null)
             {
-                return NotFound("$ No se encontro el ID {id}");
+                return NotFound($"No se encontro el ID {id}");
             }
             return profesional;
         }

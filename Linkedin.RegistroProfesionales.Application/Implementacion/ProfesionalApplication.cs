@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
 using Linkedin.RegistroProfesionales.Application.Dtos;
 using Linkedin.RegistroProfesionales.Application.Interfaces;
+using Linkedin.RegistroProfesionales.Entity;
 using Linkedin.RegistroProfesionales.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore.Query;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Linkedin.RegistroProfesionales.Application.Implementacion
 {
@@ -22,18 +25,32 @@ namespace Linkedin.RegistroProfesionales.Application.Implementacion
             return profecionalDto;
         }
 
-        public async Task<ProfesionalDetalleDto> ObtenerProfesionalPorId(int id)
+        public async Task<ProfesionalDetalleDto> ObtenerDetalleProfesional(int id)
         {
             var profesional = await profesionalRepository.ObtenerProfesionalPorId(id);
-            var profesionalDetalleDto = mapper.Map<ProfesionalDetalleDto>(profesional);
-            return profesionalDetalleDto;
-        }
+            var experiencias = await profesionalRepository.ObtenerExperienciasPorProfesionalId(id);//id del profesional
 
-        public async Task<List<ExperienciaDto>> ObtenerExperienciasPorProfesionalId(int id)
-        {
-            var experiencias = await profesionalRepository.ObtenerExperienciasPorProfesionalId(id);
-            var experienciaDto = mapper.Map<List<ExperienciaDto>>(experiencias);
-            return experienciaDto;
+            //creación del Dto general
+            var profesionalDetalleDto = new ProfesionalDetalleDto();
+
+            //creación de DatosGeneralesDto y lo llenamos con data de la entidad profesional
+            var datosGeneralesDto = new DatosGeneralesDto();
+            datosGeneralesDto.Id = profesional.Id;
+            datosGeneralesDto.Dni = profesional.Dni;
+            datosGeneralesDto.Nombres = profesional.Nombres;
+            datosGeneralesDto.Apellidos = profesional.Apellidos;
+
+            //creación de List<ExperienciaDto> y lo llenamos con data de experiencias
+            var experienciasDto = mapper.Map<List<ExperienciaDto>>(experiencias);
+
+
+
+
+            //agregamos los Dtos obtenidos al Dto general
+            profesionalDetalleDto.DatosGenerales = datosGeneralesDto;
+            profesionalDetalleDto.Experiencias = experienciasDto;
+
+            return profesionalDetalleDto;
         }
     }
 

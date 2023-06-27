@@ -13,7 +13,7 @@ namespace Linkedin.RegistroProfesionales.Entity
         public int Id { get; set; }
         [Required]
         [StringLength(80)]
-        public string NombreEmpresa { get; set; }
+        public string Nombre { get; set; }
         [Required]
         [StringLength(50)]
         public string Cargo { get; set; }

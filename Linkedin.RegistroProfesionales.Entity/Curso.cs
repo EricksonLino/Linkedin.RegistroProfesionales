@@ -10,10 +10,10 @@ namespace Linkedin.RegistroProfesionales.Entity
     public class Curso
     {
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
         [Required]
         [StringLength(150)]
-        public string NombreCurso { get; set; }
+        public string Nombre { get; set; }
         [Required]
         [StringLength(200)]
         public string Institucion { get; set; }

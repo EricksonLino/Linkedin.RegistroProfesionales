@@ -7,6 +7,6 @@ namespace Linkedin.RegistroProfesionales.Repository.Interfaces
         Task<List<Profesional>> ListarProfesionales();
         Task<Profesional> ObtenerProfesionalPorId(int id);
         Task<List<Experiencia>> ObtenerExperienciasPorProfesionalId(int id);
-        Task<List<Curso>> ObtenerCursoPorProfesionalId(int id);
+        //Task<List<Curso>> ObtenerCursoPorProfesionalId(int id);
     }
 }

@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
 using Linkedin.RegistroProfesionales.Application.Dtos;
 using Linkedin.RegistroProfesionales.Application.Interfaces;
-using Linkedin.RegistroProfesionales.Entity;
 using Linkedin.RegistroProfesionales.Repository.Interfaces;
-using Microsoft.EntityFrameworkCore.Query;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Linkedin.RegistroProfesionales.Application.Implementacion
 {
@@ -16,13 +13,13 @@ namespace Linkedin.RegistroProfesionales.Application.Implementacion
         public ProfesionalApplication(IProfesionalRepository profesionalRepository, IMapper mapper)
         {
             this.profesionalRepository = profesionalRepository;
-            this.mapper = mapper;
+            //this.mapper = mapper;
         }
         public async Task<List<ProfesionalDto>> ListarProfesionales()
         {
             var profesionales = await profesionalRepository.ListarProfesionales();
-           //var profesionalDto = mapper.Map<List<ProfesionalDto>>(profesionales);
-           var profesionalesDto = new List<ProfesionalDto>();
+            //var profesionalDto = mapper.Map<List<ProfesionalDto>>(profesionales);
+            var profesionalesDto = new List<ProfesionalDto>();
             foreach (var item in profesionales)
             {
                 var profesionalDto = new ProfesionalDto();

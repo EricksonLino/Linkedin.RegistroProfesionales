@@ -21,8 +21,20 @@ namespace Linkedin.RegistroProfesionales.Application.Implementacion
         public async Task<List<ProfesionalDto>> ListarProfesionales()
         {
             var profesionales = await profesionalRepository.ListarProfesionales();
-            var profecionalDto = mapper.Map<List<ProfesionalDto>>(profesionales);
-            return profecionalDto;
+           //var profesionalDto = mapper.Map<List<ProfesionalDto>>(profesionales);
+           var profesionalesDto = new List<ProfesionalDto>();
+            foreach (var item in profesionales)
+            {
+                var profesionalDto = new ProfesionalDto();
+                profesionalDto.Id = item.Id;
+                profesionalDto.Dni = item.Dni;
+                profesionalDto.Nombres = item.Nombres;
+                profesionalDto.Apellidos = item.Apellidos;
+                profesionalDto.Perfil = item.Perfil;
+
+                profesionalesDto.Add(profesionalDto);
+            }
+            return profesionalesDto;
         }
 
         public async Task<ProfesionalDetalleDto> ObtenerDetalleProfesional(int id)
@@ -49,10 +61,20 @@ namespace Linkedin.RegistroProfesionales.Application.Implementacion
 
 
             //creación de List<ExperienciaDto> y lo llenamos con data de experiencias
-            var experienciasDto = mapper.Map<List<ExperienciaDto>>(experiencias);
+            //var experienciasDto = mapper.Map<List<ExperienciaDto>>(experiencias);
+            var experienciasDto = new List<ExperienciaDto>();
+            foreach (var item in experiencias)
+            {
+                var experienciaDto = new ExperienciaDto();
+                experienciaDto.Id = item.Id;
+                experienciaDto.Nombre = item.Nombre;
+                experienciaDto.Cargo = item.Cargo;
+                experienciaDto.FechaInicio = item.FechaInicio;
+                experienciaDto.FechaFinalizacion = item.FechaFinalizacion;
+                experienciaDto.Funciones = item.Funciones;
 
-
-
+                experienciasDto.Add(experienciaDto);
+            }
 
             //agregamos los Dtos obtenidos al Dto general
             profesionalDetalleDto.DatosGenerales = datosGeneralesDto;

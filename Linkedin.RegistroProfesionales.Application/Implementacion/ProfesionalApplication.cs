@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Linkedin.RegistroProfesionales.Application.Dtos;
 using Linkedin.RegistroProfesionales.Application.Interfaces;
+using Linkedin.RegistroProfesionales.Entity;
 using Linkedin.RegistroProfesionales.Repository.Interfaces;
 
 namespace Linkedin.RegistroProfesionales.Application.Implementacion
@@ -38,6 +39,7 @@ namespace Linkedin.RegistroProfesionales.Application.Implementacion
         {
             var profesional = await profesionalRepository.ObtenerProfesionalPorId(id);
             var experiencias = await profesionalRepository.ObtenerExperienciasPorProfesionalId(id);//id del profesional
+            var cursos = await profesionalRepository.ObtenerCursoPorProfesionalId(id);
 
             //creación del Dto general
             var profesionalDetalleDto = new ProfesionalDetalleDto();
@@ -73,9 +75,24 @@ namespace Linkedin.RegistroProfesionales.Application.Implementacion
                 experienciasDto.Add(experienciaDto);
             }
 
+            var cursosDto = new List<CursoDto>();
+            foreach (var item in cursos)
+            {
+                var cursoDto = new CursoDto(); 
+                cursoDto.CursoId = item.Id;
+                cursoDto.Nombre = item.Nombre;
+                cursoDto.Institucion = item.Institucion;
+                cursoDto.FechaInicio = item.FechaInicio;
+                cursoDto.FechaFinalizacion = item.FechaFinalizacion;
+                cursoDto.ProfesionalId = item.Id;
+
+                cursosDto.Add(cursoDto);
+            }
+
             //agregamos los Dtos obtenidos al Dto general
             profesionalDetalleDto.DatosGenerales = datosGeneralesDto;
             profesionalDetalleDto.Experiencias = experienciasDto;
+            profesionalDetalleDto.Cursos = cursosDto;
 
             return profesionalDetalleDto;
         }

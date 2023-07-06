@@ -79,12 +79,10 @@ namespace Linkedin.RegistroProfesionales.Application.Implementacion
             foreach (var item in cursos)
             {
                 var cursoDto = new CursoDto(); 
-                cursoDto.CursoId = item.Id;
+                //cursoDto.CursoId = item.Id;
                 cursoDto.Nombre = item.Nombre;
-                cursoDto.Institucion = item.Institucion;
-                cursoDto.FechaInicio = item.FechaInicio;
-                cursoDto.FechaFinalizacion = item.FechaFinalizacion;
-                cursoDto.ProfesionalId = item.Id;
+                cursoDto.Descripcion = item.Descripcion;
+                //cursoDto.ProfesionalId = item.Id;
 
                 cursosDto.Add(cursoDto);
             }

@@ -15,12 +15,9 @@ namespace Linkedin.RegistroProfesionales.Entity
         [StringLength(150)]
         public string Nombre { get; set; }
         [Required]
-        [StringLength(200)]
-        public string Institucion { get; set; }
-        [Required]
-        public DateTime FechaInicio { get; set; }
-        [Required]
-        public DateTime FechaFinalizacion { get; set; }
+        [StringLength(1000)]
+        public string Descripcion { get; set; }
+  
         public List<ProfesionalCurso> ProfesionalCurso { get; set; }
     }
 }

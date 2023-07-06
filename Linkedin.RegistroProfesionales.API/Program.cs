@@ -17,6 +17,9 @@ builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 builder.Services.AddScoped<IProfesionalApplication, ProfesionalApplication>();
 builder.Services.AddScoped<IProfesionalRepository, ProfesionalRepository>();
 
+builder.Services.AddScoped<ICursoApplication, CursoApplication>();
+builder.Services.AddScoped<ICursoRepository, CursoRepository>();
+
 builder.Services.AddCors(c => c.AddPolicy("GeneralPolicy", p => p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
 
 builder.Services.AddControllers();

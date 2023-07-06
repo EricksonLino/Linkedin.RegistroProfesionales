@@ -1,7 +1,5 @@
 ﻿using Linkedin.RegistroProfesionales.Application.Dtos;
 using Linkedin.RegistroProfesionales.Application.Interfaces;
-using Linkedin.RegistroProfesionales.Entity;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Linkedin.RegistroProfesionales.API.Controllers

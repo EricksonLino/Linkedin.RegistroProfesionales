@@ -11,6 +11,7 @@ namespace Linkedin.RegistroProfesionales.Application.Profiles
             CreateMap<Profesional, ProfesionalDto>();
             CreateMap<Profesional, ProfesionalDetalleDto>();
             CreateMap<Experiencia, ExperienciaDto>();
+            //CreateMap<CrearCursoDto, Curso>();
             
         }
     }

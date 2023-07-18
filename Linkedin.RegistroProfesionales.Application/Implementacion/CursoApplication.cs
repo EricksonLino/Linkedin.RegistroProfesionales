@@ -10,11 +10,9 @@ namespace Linkedin.RegistroProfesionales.Application.Implementacion
     {
         private readonly ICursoRepository cursoRepository;
         
-
         public CursoApplication(ICursoRepository cursoRepository)
         {
             this.cursoRepository = cursoRepository;
-            
         }
 
         public async Task<List<CursoDto>> ListarCursos()

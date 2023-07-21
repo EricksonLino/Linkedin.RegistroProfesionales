@@ -13,6 +13,8 @@ namespace Linkedin.RegistroProfesionales.Application.Interfaces
         Task<List<EmpresaDto>> ListarEmpresas();
         Task<EmpresaDto> ObtenerPorId(int id);
         Task CrearEmpresa (CrearEmpresaDto crearEmpresaDto);
+        Task EditarEmpresa(int id, EditarEmpresaDto editarEmpresaDto);
+        Task EliminarEmpresa(int id);
 
     }
 }

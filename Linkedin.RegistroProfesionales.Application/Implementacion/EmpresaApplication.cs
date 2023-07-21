@@ -53,6 +53,22 @@ namespace Linkedin.RegistroProfesionales.Application.Implementacion
 
             await empresaRepository.InsertarEmpresa(empresaEntidad);
         }
+
+        public async Task EditarEmpresa(int id, EditarEmpresaDto editarEmpresaDto)
+        {
+            var empresaEntidad = await empresaRepository.ObtenerPorId(id);
+            empresaEntidad.Nombre = editarEmpresaDto.Nombre;
+            empresaEntidad.Ruc = editarEmpresaDto.Ruc;
+            empresaEntidad.Direccion = editarEmpresaDto.Direccion;
+
+            await empresaRepository.ActualizarEmpresa(empresaEntidad);
+        }
+
+        public async Task EliminarEmpresa(int id)
+        {
+            var empresaEntidad = await empresaRepository.ObtenerPorId(id);
+            await empresaRepository.EliminarEmpresa(empresaEntidad);
+        }
     }
     
 }

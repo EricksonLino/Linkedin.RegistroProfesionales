@@ -36,5 +36,19 @@ namespace Linkedin.RegistroProfesionales.API.Controllers
             await empresaApplication.CrearEmpresa(crearEmpresaDto);
             return Ok();
         }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Actualizar(int id, [FromBody] EditarEmpresaDto editarEmpresaDto)
+        {
+            await empresaApplication.EditarEmpresa(id, editarEmpresaDto);
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Eliminar(int id)
+        {
+            await empresaApplication.EliminarEmpresa(id);
+            return Ok();
+        }
     }
 }

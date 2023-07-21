@@ -20,6 +20,9 @@ builder.Services.AddScoped<IProfesionalRepository, ProfesionalRepository>();
 builder.Services.AddScoped<ICursoApplication, CursoApplication>();
 builder.Services.AddScoped<ICursoRepository, CursoRepository>();
 
+builder.Services.AddScoped<IEmpresaApplication, EmpresaApplication>();
+builder.Services.AddScoped<IEmpresaRepository, EmpresaRepository>();
+
 builder.Services.AddCors(c => c.AddPolicy("GeneralPolicy", p => p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
 
 builder.Services.AddControllers();

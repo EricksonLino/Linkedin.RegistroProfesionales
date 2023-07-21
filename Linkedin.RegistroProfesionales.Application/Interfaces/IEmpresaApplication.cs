@@ -1,4 +1,5 @@
 ﻿using Linkedin.RegistroProfesionales.Application.Dtos;
+using Linkedin.RegistroProfesionales.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace Linkedin.RegistroProfesionales.Application.Interfaces
     {
         Task<List<EmpresaDto>> ListarEmpresas();
         Task<EmpresaDto> ObtenerPorId(int id);
+        Task CrearEmpresa (CrearEmpresaDto crearEmpresaDto);
 
     }
 }

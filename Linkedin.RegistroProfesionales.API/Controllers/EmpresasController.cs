@@ -29,5 +29,12 @@ namespace Linkedin.RegistroProfesionales.API.Controllers
             var empresa = await empresaApplication.ObtenerPorId(id);
             return empresa;
         }
+
+        [HttpPost]
+        public async Task<ActionResult> Instertar([FromBody] CrearEmpresaDto crearEmpresaDto)
+        {
+            await empresaApplication.CrearEmpresa(crearEmpresaDto);
+            return Ok();
+        }
     }
 }

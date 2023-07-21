@@ -1,5 +1,7 @@
 ﻿using Linkedin.RegistroProfesionales.Application.Dtos;
 using Linkedin.RegistroProfesionales.Application.Interfaces;
+using Linkedin.RegistroProfesionales.Entity;
+using Linkedin.RegistroProfesionales.Repository.Implementacion;
 using Linkedin.RegistroProfesionales.Repository.Interfaces;
 
 namespace Linkedin.RegistroProfesionales.Application.Implementacion
@@ -12,6 +14,7 @@ namespace Linkedin.RegistroProfesionales.Application.Implementacion
         {
             this.empresaRepository = empresaRepository;
         }
+
         public async Task<List<EmpresaDto>> ListarEmpresas()
         {
             var empresas = await empresaRepository.ListarEmpresas();
@@ -40,5 +43,16 @@ namespace Linkedin.RegistroProfesionales.Application.Implementacion
             
             return empresaDto;
         }
+
+        public async Task CrearEmpresa(CrearEmpresaDto crearEmpresaDto)
+        {
+            var empresaEntidad = new Empresa();
+            empresaEntidad.Nombre = crearEmpresaDto.Nombre;
+            empresaEntidad.Ruc = crearEmpresaDto.Ruc;
+            empresaEntidad.Direccion = crearEmpresaDto.Direccion;
+
+            await empresaRepository.InsertarEmpresa(empresaEntidad);
+        }
     }
+    
 }
